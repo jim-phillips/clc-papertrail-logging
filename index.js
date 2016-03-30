@@ -16,7 +16,6 @@ function showStack(args) {
 if (NODE_ENV === 'dev' || NODE_ENV === 'production' || NODE_ENV === 'staging') {
   // do not print to console
   // logger.remove(logger.transports.Console);
-
   // add papertrail logging
   /* jshint expr: true */
   require('winston-papertrail').Papertrail;
@@ -32,6 +31,7 @@ if (NODE_ENV === 'dev' || NODE_ENV === 'production' || NODE_ENV === 'staging') {
       prettyPrint: true
     }
   );
+  console.log("sending logs to", PAPERTRAIL_HOST + ":" + PAPERTRAIL_PORT);
 
   // point console logging to winston logger
   console.log = function () {
