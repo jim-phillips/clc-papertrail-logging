@@ -1,7 +1,8 @@
 'use strict';
 const NODE_ENV = process.env.NODE_ENV,
+  PAPERTRAIL_HOST = process.env.PAPERTRAIL_HOST,
+  PAPERTRAIL_PORT = process.env.PAPERTRAIL_PORT,
   logger = require('winston');
-let papertrailPort = process.env.PAPERTRAIL_PORT;
 
 // ensure stack for errors
 function showStack(args) {
@@ -22,8 +23,8 @@ if (NODE_ENV === 'dev' || NODE_ENV === 'production' || NODE_ENV === 'staging') {
   /* jshint expr: false */
   logger.add(logger.transports.Papertrail,
     {
-      host: 'logs3.papertrailapp.com',
-      port: papertrailPort,
+      host: PAPERTRAIL_HOST,
+      port: PAPERTRAIL_PORT,
       colorize: true,
       inlineMeta: true,
       handleExceptions: true,
