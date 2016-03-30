@@ -13,8 +13,8 @@ function showStack(args) {
 }
 
 if (NODE_ENV === 'dev' || NODE_ENV === 'production' || NODE_ENV === 'staging') {
-  // do not print to console in prod
-  logger.remove(logger.transports.Console);
+  // do not print to console
+  // logger.remove(logger.transports.Console);
 
   // add papertrail logging
   /* jshint expr: true */
